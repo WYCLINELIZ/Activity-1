@@ -1,0 +1,40 @@
+# Base Class
+class Smartphone:
+    def __init__(self, brand, model, storage, battery_life):
+        self.brand = brand
+        self.model = model
+        self.storage = storage  # in GB
+        self.battery_life = battery_life  # in hours
+
+    def call(self, number):
+        print(f"{self.model} is calling {number}...")
+
+    def charge(self):
+        print(f"{self.model} is charging...")
+
+    def info(self):
+        print(f"Brand: {self.brand}, Model: {self.model}, Storage: {self.storage}GB, Battery: {self.battery_life}h")
+
+# Inherited Class
+class AndroidPhone(Smartphone):
+    def __init__(self, brand, model, storage, battery_life, android_version):
+        super().__init__(brand, model, storage, battery_life)
+        self.android_version = android_version
+
+    def info(self):
+        super().info()
+        print(f"Android Version: {self.android_version}")
+
+    def update_os(self):
+        print(f"{self.model} is updating to a new Android version...")
+
+# Example usage
+s1 = Smartphone("Apple", "iPhone 14", 128, 20)
+s2 = AndroidPhone("Samsung", "Galaxy S23", 256, 24, "13.0")
+
+s1.info()
+s1.call("+254700123456")
+print()
+
+s2.info()
+s2.update_os()
